@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import TileLayout from "./TileLayout";
 import { dummyImages } from "./utils";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
 const SecondTile = () => {
   const [images, setImages] = useState(dummyImages);
@@ -21,7 +21,7 @@ const SecondTile = () => {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      const url = URL.createObjectURL(file); // create preview URL
+      const url = URL.createObjectURL(file);
       setPreview(url);
 
       const newImage = { id: images.length + 1, src: url };
@@ -35,7 +35,7 @@ const SecondTile = () => {
 
   useEffect(() => {
     if (containerRef.current) {
-      setContainerWidth(containerRef.current.offsetWidth); // measure parent
+      setContainerWidth(containerRef.current.offsetWidth);
     }
 
     const handleResize = () => {
@@ -94,7 +94,7 @@ const SecondTile = () => {
     <TileLayout>
       <div className="w-full md:[20px] lg:pr-[46px] ">
         <div className="flex justify-between w-full  h-fit items-center  pl-[17px] ">
-          <div className="gallery-shadow lg:w-[149px]  md:w-[100px]  bg-[#171717] md:rounded-[12px] lg:rounded-[23px] flex lg:h-[62px] md:h-[50px] lg:p-[6px]  justify-center items-center text-white ">
+          <div className="gallery-shadow lg:w-[119px]  md:w-[100px]  bg-[#171717] md:rounded-[12px] lg:rounded-[23px] flex lg:h-[62px] md:h-[50px] lg:p-[6px]  justify-center items-center text-white ">
             Gallery
           </div>
           <div className="flex md:gap-[20px] lg:gap-[35px]">
@@ -116,23 +116,31 @@ const SecondTile = () => {
               <div
                 className={`  ${
                   prevDisable
-                    ? "opacity-50 cursor-not-allowed"
-                    : "cursor-pointer"
-                } lg:h-[45px] lg:w-[45px] md:h-[35px] md:w-[35px]   arrow-button-glow cursor-pointer`}
+                    ? " disable-button "
+                    : "cursor-pointer arrow-button-glow hover:pt-[1px]"
+                } lg:h-[45px] lg:w-[45px] md:h-[35px] md:w-[35px]  flex justify-center items-center  hover:bg-black `}
                 onClick={!prevDisable ? handlePrev : undefined}
               >
-                <FaArrowLeft />
+                <FaArrowLeft
+                  className={` ${
+                    prevDisable ? "text-white" : "text-[#6F787C] "
+                  } text-[15px]  `}
+                />
               </div>
 
               <div
                 className={`  ${
                   nextDisable
-                    ? "opacity-50 cursor-not-allowed"
-                    : "cursor-pointer"
-                } lg:h-[45px] lg:w-[45px] md:h-[35px] md:w-[35px]   arrow-button-glow cursor-pointer`}
+                    ? " disable-button"
+                    : "cursor-pointer arrow-button-glow hover:pt-[1px]"
+                } lg:h-[45px] lg:w-[45px] md:h-[35px] md:w-[35px]   flex justify-center items-center hover:bg-black`}
                 onClick={!nextDisable ? handleNext : undefined}
               >
-                <FaArrowRight />
+                <FaArrowRight
+                  className={` ${
+                    nextDisable ? "text-white" : "text-[#6F787C] "
+                  } text-[15px]`}
+                />
               </div>
             </div>
           </div>
@@ -146,7 +154,7 @@ const SecondTile = () => {
             className="flex transition-normal duration-500 ease-in-out gap-[14px] overflow-visible"
             style={{
               transform: `translateX(-${index * (slideWidth + 14)}px)`,
-              width: `${containerWidth - 46}px`, // prevent flex from auto-expanding
+              width: `${containerWidth - 6}px`,
             }}
           >
             {images.map((src, i) => (

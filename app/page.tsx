@@ -7,7 +7,7 @@ export default function Home() {
       <div className="  h-full w-full rounded-[27px] flex md:gap-[10px] lg:gap-[56px]">
         <div className=" w-[45%] bg-[#616161]/82 rounded-[27px] shrink-0" />
 
-        <div className="flex flex-col ">
+        <div className="flex flex-col overflow-y-scroll hide-scrollbar">
           <FirstTile />
           <SecondTile />
         </div>

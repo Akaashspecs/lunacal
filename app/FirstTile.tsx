@@ -7,9 +7,6 @@ import { info } from "./utils";
 
 const FirstTile = () => {
   const [selectedInfo, setSelectedInfo] = useState(info[0]);
-  const handleSelectedInfo = (value) => {
-    setSelectedInfo(value);
-  };
 
   return (
     <TileLayout>
@@ -43,7 +40,7 @@ const FirstTile = () => {
           </div>
 
           <div
-            className="h-[135px] overflow-y-scroll mt-[35px]  text-[#969696] lg:ml-[17px] md:mr-[10px] lg:pr-[41px] lg:text-base   md:text-sm"
+            className="max-h-[235px] overflow-y-scroll mt-[35px]  text-[#969696] md:ml-[10px] lg:ml-[17px] md:pr-[20px]   lg:pr-[41px] lg:text-base   md:text-sm font-jakarta"
             dangerouslySetInnerHTML={{ __html: selectedInfo.text }}
           />
         </div>

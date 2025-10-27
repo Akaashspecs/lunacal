@@ -3,6 +3,19 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+body {
+  font-family: var(--font-plus-jakarta), sans-serif;
+}
+
 .montserrat-alternates-regular {
   font-family: "Montserrat Alternates", sans-serif;
   font-weight: 400;
@@ -60,6 +73,11 @@
 
   border-radius: 104px;
   background-color: rgba(255, 255, 255, 0.03);
+}
+.disable-button {
+  background: linear-gradient(150deg, #96bee7, #161718 80%);
+
+  border-radius: 104px;
 }
 
 .arrow-button-glow {

@@ -27,7 +27,7 @@ const TileLayout = ({ children }) => {
         {children}
       </div>
 
-      <div className="mt-[21px] mb-[16px] w-full h-1   rounded-[3px] line-shadow "></div>
+      <div className="mt-[21px] mb-[16px] w-[85%] mx-auto h-1   rounded-[3px] line-shadow "></div>
     </div>
   );
 };
