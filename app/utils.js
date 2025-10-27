@@ -17,9 +17,9 @@ export const info = [
 ];
 
 export const dummyImages = [
-  { id: 1, src: "/bg.jpg" },
-  { id: 2, src: "/file.svg" },
-  { id: 3, src: "/next.svg" },
-  { id: 4, src: "/window.svg" },
+  { id: 1, src: "/plant.jpg" },
+  { id: 2, src: "/lake.webp" },
+  { id: 3, src: "/mountain.jpg" },
+  { id: 4, src: "/nature.webp" },
   { id: 5, src: "/bg.jpg" },
 ];

@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { useState } from "react";
 import TileLayout from "./TileLayout";
@@ -24,7 +26,7 @@ const FirstTile = () => {
                     : "text-[#A3ADB2] "
                 } cursor-pointer transition-all duration-300 ease-in-out`}
               >
-                <div className="relative z-20 md:text-xs lg:text-base">
+                <div className="montserrat-alternates-regular relative z-20 md:text-xs lg:text-base">
                   {" "}
                   {item.heading}
                 </div>
