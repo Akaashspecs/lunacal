@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const TileLayout = ({ children }) => {
+const TileLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="w-full f-full  rounded-[19px] ">
       {/* Upper Tab*/}

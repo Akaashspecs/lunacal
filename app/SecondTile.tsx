@@ -8,7 +8,7 @@ import { dummyImages } from "./utils";
 const SecondTile = () => {
   const [images, setImages] = useState(dummyImages);
   const [index, setIndex] = useState(0);
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [containerWidth, setContainerWidth] = useState(0);
   const [visibleSlides, setVisibleSlides] = useState(3);
   const [prevDisable, setPrevDisable] = useState(true);
@@ -16,13 +16,10 @@ const SecondTile = () => {
 
   const totalSlides = images.length;
 
-  const [preview, setPreview] = useState(null);
-
-  const handleFileChange = (e) => {
+  const handleFileChange = (e: any) => {
     const file = e.target.files[0];
     if (file) {
       const url = URL.createObjectURL(file);
-      setPreview(url);
 
       const newImage = { id: images.length + 1, src: url };
 
@@ -54,6 +51,9 @@ const SecondTile = () => {
     }
     if (containerWidth <= 600 && visibleSlides !== 3) {
       setVisibleSlides(3);
+      if (nextDisable === true) {
+        setNextDisable(false);
+      }
     }
   }, [containerWidth]);
 
@@ -148,10 +148,10 @@ const SecondTile = () => {
 
         <div
           ref={containerRef}
-          className="relative w-[95%] overflow-visible py-10  pl-[25px] "
+          className="relative w-[95%] overflow-visible py-10 md:pl-[10px]  lg:pl-[25px] "
         >
           <div
-            className="flex transition-normal duration-500 ease-in-out gap-[14px] overflow-visible"
+            className="flex transition-normal duration-500 ease-in-out gap-[13px] overflow-visible"
             style={{
               transform: `translateX(-${index * (slideWidth + 14)}px)`,
               width: `${containerWidth - 6}px`,
@@ -169,7 +169,7 @@ const SecondTile = () => {
                 <img
                   src={src.src}
                   alt={`Slide ${i}`}
-                  className={`w-full h-full object-cover rounded-md grayscale hover:z-[100]
+                  className={`w-full h-full object-cover rounded-[24px] grayscale hover:z-[100]
                      hover:scale-110 hover:grayscale-0 hover:-rotate-3
                      transition-transform duration-300 ease-in-out relative z-10 ${
                        !visibleImages.some((v) => v.id === src.id) && "hidden"
